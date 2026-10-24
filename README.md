@@ -1,5 +1,7 @@
 # Job Tracker API
 
+![CI](https://github.com/FeritBaturAltinn/job-tracker-api/actions/workflows/ci.yml/badge.svg)
+
 REST API for tracking job applications (company, role, status, date, link, notes), built to practice a typical backend setup: FastAPI, SQLAlchemy, PostgreSQL, automated tests and Docker.
 
 Requires Docker Desktop.
@@ -39,7 +41,8 @@ Tests run against an in-memory SQLite database, so no Docker is needed. They cov
 - Pydantic schemas validate input. Separate create, update and output models keep partial updates safe.
 - `PATCH` applies only fields the client sent. Sending `null` for a required field is rejected with a 422 instead of failing in the database.
 - The database URL comes from the `DATABASE_URL` environment variable and defaults to local SQLite for development.
+- GitHub Actions runs the tests and builds the Docker image on every push.
 
 ## Not done yet
 
-Authentication, database migrations (tables are created at startup), and a CI pipeline.
+Authentication and database migrations (tables are created at startup).
